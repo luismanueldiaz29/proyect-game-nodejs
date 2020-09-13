@@ -23,8 +23,21 @@ exports.getGames = function(req, res) {
     });
 }
 
-exports.postGame =  function(req, res){
+exports.post =  function(req, res){
     // const {id, title, description, image, created_at} = req.body;
     connection.query('INSERT INTO games set ?', [req.body]);
     res.json({ text: 'Game Saved' });
+}
+
+exports.delete = function(req, res){
+    const { id } = req.params;
+    connection.query('DELETE FROM games WHERE id = ?', [id]);
+    res.json({ message: "The game was deleted" });
+}
+
+exports.update = function(req, res){
+    const { id } = req.params;
+    const oldGame = req.body;
+    connection.query('UPDATE games set ? WHERE id = ?', [req.body, id]);
+    res.json({ message: "The game was Updated" });
 }
