@@ -12,9 +12,9 @@ exports.get =  function(req, res){
     }); 
 }
 
-exports.getGames = function(req, res) {
+exports.getGames = async function(req, res) {
     const { id } = req.params; 
-    connection.query('SELECT * FROM games WHERE id = ?', [id], (err, rows, fields) => {
+    await connection.query('SELECT * FROM games WHERE id = ?', [id], (err, rows, fields) => {
         if(!err){
             res.json(rows);
         }else{

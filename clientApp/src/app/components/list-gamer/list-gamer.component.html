@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-md-4 mt-3" *ngFor="let game of games">
+        <div class="card" style="width: 18rem;">
+            <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/13729/production/_112375697_1331db7a-17c0-4401-8cac-6a2309ff49b6.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{game.title}}</h5>
+            <p class="card-text">{{game.description}}</p>
+            <a href="#" class="btn btn-primary">Editar</a>
+            </div>
+        </div>
+    </div>
+</div>
